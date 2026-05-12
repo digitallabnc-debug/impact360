@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Impact360 Youth Organization – Tharaka Nithi County</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --ink:    #0b1220;
+  --navy:   #0f1f6e;
+  --orange: #e8540f;
+  --white:  #ffffff;
+  --fog:    #f0f2f8;
+  --dim:    rgba(255,255,255,0.12);
+  --rule:   rgba(255,255,255,0.08);
+  --green:  #1a5c32;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--ink);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+/* ─── TYPE ─── */
+.display {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 400; line-height: 1.02; letter-spacing: -1.5px;
+}
+.heading {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800; line-height: 1.1; letter-spacing: -0.5px;
+}
+.label {
+  font-family: 'Syne', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--orange);
+}
+.body-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300; line-height: 1.75;
+  color: rgba(255,255,255,0.55);
+}
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; inset: 0 0 auto 0; z-index: 999;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 6%;
+  height: 68px;
+  border-bottom: 1px solid var(--rule);
+  background: rgba(11,18,32,0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.n-logo {
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none;
+}
+.n-mark {
+  display: flex; align-items: center; gap: 0;
+}
+.n-mark-bar {
+  width: 3px; height: 28px; background: var(--orange); margin-right: 8px; flex-shrink: 0;
+}
+.n-mark-text {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px; font-weight: 800; letter-spacing: -0.3px; color: var(--white);
+}
+.n-mark-text span { color: var(--orange); }
+.n-sub {
+  font-family: 'Syne', sans-serif;
+  font-size: 9px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: rgba(255,255,255,0.3);
+  margin-top: 1px;
+}
+.n-links { display: flex; align-items: center; gap: 2px; }
+.n-link {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px; font-weight: 600; letter-spacing: 0.3px;
+  color: rgba(255,255,255,0.55); text-decoration: none;
+  padding: 8px 16px; border-radius: 4px;
+  transition: color 0.2s;
+}
+.n-link:hover { color: var(--white); }
+.n-cta {
+  margin-left: 12px;
+  font-family: 'Syne', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.5px;
+  color: var(--white); text-decoration: none;
+  padding: 9px 22px;
+  background: var(--orange);
+  border: none; border-radius: 3px;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.n-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+  padding-top: 68px;
+}
+.hero-left {
+  padding: 10% 8% 10% 6%;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; z-index: 2;
+  border-right: 1px solid var(--rule);
+}
+.hero-right {
+  background: var(--navy);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 10% 7%;
+  position: relative; overflow: hidden;
+}
+.hero-right::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 30%, rgba(232,84,15,0.12) 0%, transparent 60%);
+}
+.hero-eyebrow {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 32px;
+}
+.hero-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--orange);
+  animation: blink 2s ease infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
+.hero-eyebrow-text {
+  font-family: 'Syne', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: rgba(255,255,255,0.4);
+}
+.hero-h1 {
+  font-size: clamp(48px, 5.5vw, 80px);
+  margin-bottom: 28px; color: var(--white);
+}
+.hero-h1 em { color: var(--orange); font-style: italic; }
+.hero-sub {
+  font-size: 17px; max-width: 440px; margin-bottom: 48px;
+}
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; }
+.btn-primary {
+  font-family: 'Syne', sans-serif;
+  font-size: 14px; font-weight: 700; letter-spacing: 0.3px;
+  color: var(--white); text-decoration: none;
+  padding: 14px 30px;
+  background: var(--orange); border-radius: 3px;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
+.btn-ghost {
+  font-family: 'Syne', sans-serif;
+  font-size: 14px; font-weight: 600; letter-spacing: 0.3px;
+  color: rgba(255,255,255,0.6); text-decoration: none;
+  padding: 14px 30px;
+  border: 1px solid rgba(255,255,255,0.18); border-radius: 3px;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all 0.2s;
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,0.5); color: var(--white); }
+.hero-tagline {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(36px, 4.5vw, 60px);
+  line-height: 1.1; color: var(--white); margin-bottom: 40px;
+  position: relative; z-index: 1;
+}
+.hero-tagline span {
+  display: block; font-style: italic; color: rgba(255,255,255,0.4);
+  font-size: 0.75em;
+}
+.hero-stats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+  background: var(--rule); border: 1px solid var(--rule);
+  position: relative; z-index: 1;
+}
+.hs {
+  background: rgba(15,31,110,0.7);
+  padding: 28px 24px;
+}
+.hs-n {
+  font-family: 'Syne', sans-serif;
+  font-size: 38px; font-weight: 800; color: var(--white); line-height: 1;
+  margin-bottom: 4px;
+}
+.hs-n sup { font-size: 20px; color: var(--orange); }
+.hs-l {
+  font-size: 12px; color: rgba(255,255,255,0.38);
+  font-family: 'Inter', sans-serif; font-weight: 400; letter-spacing: 0.3px;
+}
+
+/* ─── PARTNER RIBBON ─── */
+.ribbon {
+  background: var(--navy);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 18px 6%;
+  display: flex; align-items: center; gap: 28px; flex-wrap: wrap;
+}
+.r-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 10px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: rgba(255,255,255,0.28); white-space: nowrap;
+}
+.r-sep { width: 1px; height: 20px; background: var(--rule); flex-shrink: 0; }
+.r-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.r-chip {
+  font-family: 'Syne', sans-serif;
+  font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.5);
+  padding: 5px 14px;
+  border: 1px solid rgba(255,255,255,0.1); border-radius: 2px;
+  letter-spacing: 0.3px;
+  transition: all 0.2s;
+}
+.r-chip:hover { color: var(--white); border-color: rgba(255,255,255,0.3); }
+
+/* ─── MISSION ─── */
+.mission {
+  display: grid; grid-template-columns: 1fr 1fr;
+  min-height: 480px;
+}
+.mission-left {
+  background: var(--orange);
+  padding: 80px 6% 80px 6%;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.mission-left .display { font-size: clamp(28px,3vw,42px); color: var(--white); line-height: 1.25; letter-spacing: -0.5px; }
+.mission-left .label { color: rgba(255,255,255,0.6); margin-bottom: 24px; }
+.mission-right {
+  background: var(--fog);
+  padding: 80px 7%;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.mission-right .label { color: var(--navy); margin-bottom: 24px; }
+.mission-right .display { font-size: clamp(24px,2.5vw,36px); color: var(--ink); line-height: 1.3; letter-spacing: -0.3px; }
+
+/* ─── PILLARS ─── */
+.pillars { padding: 100px 6%; }
+.pillars-header {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end;
+  margin-bottom: 72px; padding-bottom: 48px; border-bottom: 1px solid var(--rule);
+}
+.ph-title { font-size: clamp(36px, 4vw, 56px); color: var(--white); }
+.ph-desc { font-size: 16px; max-width: 400px; align-self: end; }
+
+.pillars-list { display: flex; flex-direction: column; gap: 1px; background: var(--rule); }
+.pillar {
+  display: grid; grid-template-columns: 72px 1fr 1fr auto;
+  gap: 0; align-items: stretch;
+  background: var(--ink);
+  transition: background 0.25s;
+  cursor: default;
+}
+.pillar:hover { background: #111b30; }
+.pillar-num {
+  display: flex; align-items: center; justify-content: center;
+  border-right: 1px solid var(--rule);
+  font-family: 'Syne', sans-serif;
+  font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.2);
+  letter-spacing: 1px;
+  padding: 40px 0;
+}
+.pillar.active .pillar-num { color: var(--orange); }
+.pillar-identity {
+  padding: 40px 40px 40px 36px;
+  border-right: 1px solid var(--rule);
+  display: flex; flex-direction: column; justify-content: center;
+}
+.pillar-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 22px; font-weight: 800; color: var(--white); margin-bottom: 4px;
+}
+.pillar-tag {
+  font-size: 12px; color: rgba(255,255,255,0.3);
+  font-family: 'Inter', sans-serif; font-weight: 400;
+}
+.pillar-body {
+  padding: 40px 40px;
+  border-right: 1px solid var(--rule);
+  display: flex; flex-direction: column; justify-content: center;
+}
+.pillar-desc { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.5); }
+.pillar-acts {
+  list-style: none; margin-top: 18px; display: flex; flex-direction: column; gap: 6px;
+}
+.pillar-acts li {
+  font-size: 13px; color: rgba(255,255,255,0.4);
+  display: flex; align-items: flex-start; gap: 10px;
+}
+.pillar-acts li::before { content: '—'; color: var(--orange); flex-shrink: 0; font-size: 12px; }
+.pillar-partner {
+  padding: 40px 32px;
+  display: flex; flex-direction: column; justify-content: center;
+  min-width: 200px;
+}
+.pp-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(255,255,255,0.25);
+  margin-bottom: 10px; font-family: 'Syne', sans-serif;
+}
+.pp-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.6); line-height: 1.5;
+}
+.pillar.active .pillar-identity { border-left: 3px solid var(--orange); padding-left: 33px; }
+
+/* ─── IMPACT ─── */
+.impact {
+  background: var(--navy);
+  padding: 100px 6%;
+  position: relative; overflow: hidden;
+}
+.impact::before {
+  content: '';
+  position: absolute; top: -200px; right: -200px;
+  width: 600px; height: 600px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,84,15,0.06) 0%, transparent 70%);
+}
+.impact-grid {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 0; background: var(--rule); border: 1px solid var(--rule);
+  margin-top: 56px;
+}
+.ig {
+  padding: 48px 36px;
+  border-right: 1px solid var(--rule);
+}
+.ig:last-child { border-right: none; }
+.ig-n {
+  font-family: 'Syne', sans-serif;
+  font-size: 56px; font-weight: 800; color: var(--white);
+  line-height: 1; margin-bottom: 8px;
+}
+.ig-n em { color: var(--orange); font-style: normal; font-size: 36px; }
+.ig-l { font-size: 13px; color: rgba(255,255,255,0.38); font-weight: 400; }
+
+/* ─── PIPELINE ─── */
+.pipeline { padding: 100px 6%; }
+.pipe-header { margin-bottom: 72px; }
+.pipe-steps {
+  display: grid; grid-template-columns: repeat(5,1fr);
+  gap: 1px; background: var(--rule); border: 1px solid var(--rule);
+}
+.ps {
+  padding: 48px 28px; background: var(--ink);
+  transition: background 0.2s;
+  position: relative;
+}
+.ps:hover { background: #111b30; }
+.ps-n {
+  font-family: 'Syne', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  color: rgba(255,255,255,0.2); margin-bottom: 20px;
+}
+.ps.first .ps-n { color: var(--orange); }
+.ps-icon { font-size: 28px; margin-bottom: 16px; display: block; }
+.ps-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 8px;
+}
+.ps-sub { font-size: 13px; color: rgba(255,255,255,0.38); line-height: 1.6; }
+.ps-arrow {
+  position: absolute; right: -10px; top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px; color: rgba(255,255,255,0.15); z-index: 2;
+}
+.ps:last-child .ps-arrow { display: none; }
+
+/* ─── CTA ─── */
+.cta-block {
+  display: grid; grid-template-columns: 1fr 1fr;
+  min-height: 520px;
+}
+.cta-left {
+  background: var(--orange);
+  padding: 80px 6%;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.cta-right {
+  background: var(--fog);
+  padding: 80px 7%;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.cta-ey {
+  font-family: 'Syne', sans-serif;
+  font-size: 10px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; margin-bottom: 20px; display: block;
+}
+.cta-left .cta-ey { color: rgba(255,255,255,0.5); }
+.cta-right .cta-ey { color: var(--orange); }
+.cta-h {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.2; margin-bottom: 20px;
+}
+.cta-left .cta-h { color: var(--white); }
+.cta-right .cta-h { color: var(--ink); }
+.cta-d { font-size: 15px; line-height: 1.7; margin-bottom: 0; }
+.cta-left .cta-d { color: rgba(255,255,255,0.65); }
+.cta-right .cta-d { color: rgba(11,18,32,0.55); }
+.cta-bottom { display: flex; flex-direction: column; gap: 14px; }
+.btn-white {
+  font-family: 'Syne', sans-serif;
+  font-size: 14px; font-weight: 700;
+  color: var(--orange); background: var(--white);
+  text-decoration: none; padding: 14px 28px; border-radius: 3px;
+  display: inline-flex; align-items: center; gap: 8px;
+  width: fit-content; transition: opacity 0.2s, transform 0.2s;
+}
+.btn-white:hover { opacity: 0.9; transform: translateY(-2px); }
+.btn-dark {
+  font-family: 'Syne', sans-serif;
+  font-size: 14px; font-weight: 700;
+  color: var(--white); background: var(--ink);
+  text-decoration: none; padding: 14px 28px; border-radius: 3px;
+  display: inline-flex; align-items: center; gap: 8px;
+  width: fit-content; transition: opacity 0.2s, transform 0.2s;
+}
+.btn-dark:hover { opacity: 0.85; transform: translateY(-2px); }
+.cta-meta { font-size: 12px; }
+.cta-left .cta-meta { color: rgba(255,255,255,0.38); }
+.cta-right .cta-meta { color: rgba(11,18,32,0.38); }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--ink);
+  border-top: 1px solid var(--rule);
+  padding: 64px 6% 36px;
+}
+.footer-top {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+  padding-bottom: 48px; border-bottom: 1px solid var(--rule); margin-bottom: 32px;
+}
+.f-brand-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px; font-weight: 800; color: var(--white); margin-bottom: 6px;
+}
+.f-brand-name span { color: var(--orange); }
+.f-brand-tag {
+  font-size: 13px; font-style: italic; color: rgba(255,255,255,0.35);
+  font-family: 'DM Serif Display', serif; margin-bottom: 16px; display: block;
+}
+.f-brand-loc {
+  font-size: 12px; color: rgba(255,255,255,0.22);
+  display: inline-flex; align-items: center; gap: 6px;
+  border: 1px solid var(--rule); padding: 4px 12px; border-radius: 2px;
+}
+.fcol h4 {
+  font-family: 'Syne', sans-serif;
+  font-size: 10px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: rgba(255,255,255,0.22); margin-bottom: 18px;
+}
+.fcol a {
+  display: block; font-size: 14px; color: rgba(255,255,255,0.48);
+  text-decoration: none; margin-bottom: 12px;
+  transition: color 0.15s;
+}
+.fcol a:hover { color: var(--orange); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px;
+  font-size: 12px; color: rgba(255,255,255,0.22);
+  font-family: 'Inter', sans-serif;
+}
+
+/* ─── REVEAL ─── */
+.rv { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.rv.in { opacity: 1; transform: none; }
+
+/* ─── RESPONSIVE ─── */
+@media(max-width: 960px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .mission, .cta-block { grid-template-columns: 1fr; }
+  .pillars-header { grid-template-columns: 1fr; }
+  .pillar { grid-template-columns: 56px 1fr; }
+  .pillar-body, .pillar-partner { display: none; }
+  .impact-grid, .pipe-steps { grid-template-columns: 1fr 1fr; }
+  .ig { border-right: none; border-bottom: 1px solid var(--rule); }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+}
+@media(max-width: 640px) {
+  .n-links .n-link { display: none; }
+  .impact-grid { grid-template-columns: 1fr 1fr; }
+  .pipe-steps { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="n-logo">
+    <div class="n-mark">
+      <div class="n-mark-bar"></div>
+      <div style="display:flex;flex-direction:column;gap:2px;">
+        <div class="n-mark-text">IMPACT<span>360</span></div>
+        <div class="n-sub">Youth Organization</div>
+      </div>
+    </div>
+  </a>
+  <div class="n-links">
+    <a href="#about" class="n-link">About</a>
+    <a href="#pillars" class="n-link">Programs</a>
+    <a href="#impact" class="n-link">Impact</a>
+    <a href="#join" class="n-link">Contact</a>
+    <a href="https://wa.me/254700000000?text=Hello%2C%20I%20want%20to%20join%20Impact360" class="n-cta" target="_blank">Join Community</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left rv in">
+    <div class="hero-eyebrow">
+      <div class="hero-dot"></div>
+      <span class="hero-eyebrow-text">Tharaka Nithi County &nbsp;·&nbsp; Kenya</span>
+    </div>
+    <h1 class="hero-h1 display">
+      Empowering<br>
+      <em>Tomorrow,</em><br>
+      Today.
+    </h1>
+    <p class="hero-sub body-text">
+      Impact360 connects youth to opportunities, shapes responsible life outcomes,
+      and drives community impact across all 15 wards of Tharaka Nithi County.
+    </p>
+    <div class="hero-ctas">
+      <a href="https://wa.me/254700000000?text=Hello%2C%20I%20want%20to%20join%20Impact360"
+         class="btn-primary" target="_blank">🟢 Join on WhatsApp</a>
+      <a href="#partner" class="btn-ghost">Partner with us →</a>
+    </div>
+  </div>
+  <div class="hero-right rv in">
+    <div class="hero-tagline display">
+      Youth-led.<br>
+      <span>Institution-backed.</span><br>
+      County-wide.
+    </div>
+    <div class="hero-stats">
+      <div class="hs">
+        <div class="hs-n">1.8<sup>K+</sup></div>
+        <div class="hs-l">Youth Reached</div>
+      </div>
+      <div class="hs">
+        <div class="hs-n">3</div>
+        <div class="hs-l">Active Programs</div>
+      </div>
+      <div class="hs">
+        <div class="hs-n">5<sup>+</sup></div>
+        <div class="hs-l">Partners</div>
+      </div>
+      <div class="hs">
+        <div class="hs-n">15</div>
+        <div class="hs-l">Wards Targeted</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNER RIBBON -->
+<div class="ribbon" id="about">
+  <span class="r-label">Verified Partners</span>
+  <div class="r-sep"></div>
+  <div class="r-chips">
+    <div class="r-chip">NACADA</div>
+    <div class="r-chip">Kenya Forest Service</div>
+    <div class="r-chip">Kenya Wildlife Service</div>
+    <div class="r-chip">Tharaka University</div>
+    <div class="r-chip">Kenya Water Authority</div>
+  </div>
+</div>
+
+<!-- MISSION / VISION -->
+<div class="mission rv">
+  <div class="mission-left">
+    <span class="label" style="color:rgba(255,255,255,0.55)">Our Mission</span>
+    <p class="display" style="font-size:clamp(26px,2.8vw,40px);color:#fff;line-height:1.3;letter-spacing:-0.3px;">
+      To connect youth to opportunities, shape positive life outcomes, and drive community impact through skills, behavior change, and climate action.
+    </p>
+  </div>
+  <div class="mission-right">
+    <span class="label">Our Vision</span>
+    <p class="display" style="font-size:clamp(24px,2.4vw,36px);color:var(--ink);line-height:1.35;letter-spacing:-0.3px;">
+      A generation of empowered, responsible, and opportunity-driven youth transforming Tharaka Nithi County — ward by ward.
+    </p>
+  </div>
+</div>
+
+<!-- PILLARS -->
+<section class="pillars" id="pillars">
+  <div class="pillars-header rv">
+    <div>
+      <span class="label" style="display:block;margin-bottom:18px;">Our Programs</span>
+      <h2 class="heading ph-title">Three pillars.<br>One purpose.</h2>
+    </div>
+    <p class="body-text ph-desc">
+      Each program is anchored to a verified institutional partner and designed to produce
+      outcomes that are visible, measurable, and community-owned.
+    </p>
+  </div>
+
+  <div class="pillars-list rv">
+    <div class="pillar active">
+      <div class="pillar-num">01</div>
+      <div class="pillar-identity">
+        <div class="pillar-name">Life360</div>
+        <div class="pillar-tag">Behavior &amp; Life Outcomes · Mindset · Discipline</div>
+      </div>
+      <div class="pillar-body">
+        <p class="pillar-desc">Equipping youth with tools to make responsible life decisions — from substance abuse prevention to mental health and peer leadership.</p>
+        <ul class="pillar-acts">
+          <li>Anti-drug &amp; substance abuse campaigns</li>
+          <li>School and campus outreach talks</li>
+          <li>Mental health and life skills sessions</li>
+          <li>Peer mentorship programs</li>
+        </ul>
+      </div>
+      <div class="pillar-partner">
+        <div class="pp-label">Verified Partner</div>
+        <div class="pp-name">NACADA<br><span style="color:rgba(255,255,255,0.3);font-size:11px;font-weight:400;">National Authority for Campaign Against Alcohol &amp; Drug Abuse</span></div>
+      </div>
+    </div>
+
+    <div class="pillar">
+      <div class="pillar-num">02</div>
+      <div class="pillar-identity">
+        <div class="pillar-name">Green360</div>
+        <div class="pillar-tag">Environment &amp; Climate Action · Conservation · Sustainability</div>
+      </div>
+      <div class="pillar-body">
+        <p class="pillar-desc">Mobilizing youth to lead environmental protection and climate resilience across Tharaka Nithi — from tree planting to community conservation.</p>
+        <ul class="pillar-acts">
+          <li>Monthly tree planting drives</li>
+          <li>Environmental clean-up campaigns</li>
+          <li>Climate awareness workshops</li>
+          <li>Community conservation projects</li>
+        </ul>
+      </div>
+      <div class="pillar-partner">
+        <div class="pp-label">Verified Partners</div>
+        <div class="pp-name">Kenya Forest Service<br>Kenya Wildlife Service</div>
+      </div>
+    </div>
+
+    <div class="pillar">
+      <div class="pillar-num">03</div>
+      <div class="pillar-identity">
+        <div class="pillar-name">Opportunity360</div>
+        <div class="pillar-tag">Skills &amp; Economic Development · Employment · Entrepreneurship</div>
+      </div>
+      <div class="pillar-body">
+        <p class="pillar-desc">Bridging the gap between youth and income — connecting young people to internships, digital skills, and real entrepreneurship pathways.</p>
+        <ul class="pillar-acts">
+          <li>Weekly jobs, tenders &amp; internship alerts</li>
+          <li>Digital skills bootcamps</li>
+          <li>University partnership programs</li>
+          <li>Youth entrepreneurship support</li>
+        </ul>
+      </div>
+      <div class="pillar-partner">
+        <div class="pp-label">Verified Partners</div>
+        <div class="pp-name">Tharaka University<br><span style="color:rgba(255,255,255,0.3);font-size:11px;font-weight:400;">+ partner institutions</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT NUMBERS -->
+<section class="impact" id="impact">
+  <div class="rv">
+    <span class="label">Impact at a Glance</span>
+    <h2 class="heading" style="font-size:clamp(32px,3.5vw,48px);color:var(--white);margin-top:14px;">
+      Numbers that tell<br>the real story.
+    </h2>
+  </div>
+  <div class="impact-grid rv">
+    <div class="ig">
+      <div class="ig-n">393<em>K</em></div>
+      <div class="ig-l">People in Tharaka Nithi County</div>
+    </div>
+    <div class="ig">
+      <div class="ig-n">1.8<em>K+</em></div>
+      <div class="ig-l">Youth currently reached</div>
+    </div>
+    <div class="ig">
+      <div class="ig-n">15</div>
+      <div class="ig-l">Wards targeted for reach</div>
+    </div>
+    <div class="ig">
+      <div class="ig-n">5<em>+</em></div>
+      <div class="ig-l">Verified institutional partners</div>
+    </div>
+  </div>
+</section>
+
+<!-- PIPELINE -->
+<section class="pipeline">
+  <div class="pipe-header rv">
+    <span class="label" style="display:block;margin-bottom:18px;">How It Works</span>
+    <h2 class="heading" style="font-size:clamp(32px,3.5vw,48px);color:var(--white);">
+      A system — not just a page.
+    </h2>
+  </div>
+  <div class="pipe-steps rv">
+    <div class="ps first">
+      <div class="ps-n">STEP 01</div>
+      <span class="ps-icon">📣</span>
+      <div class="ps-title">Awareness</div>
+      <div class="ps-sub">Social media &amp; community outreach</div>
+      <div class="ps-arrow">›</div>
+    </div>
+    <div class="ps">
+      <div class="ps-n">STEP 02</div>
+      <span class="ps-icon">📲</span>
+      <div class="ps-title">Capture</div>
+      <div class="ps-sub">Youth join the WhatsApp Community</div>
+      <div class="ps-arrow">›</div>
+    </div>
+    <div class="ps">
+      <div class="ps-n">STEP 03</div>
+      <span class="ps-icon">🗂️</span>
+      <div class="ps-title">Organize</div>
+      <div class="ps-sub">Sorted into sub-groups by interest</div>
+      <div class="ps-arrow">›</div>
+    </div>
+    <div class="ps">
+      <div class="ps-n">STEP 04</div>
+      <span class="ps-icon">⚡</span>
+      <div class="ps-title">Activate</div>
+      <div class="ps-sub">Programs, events &amp; real tasks</div>
+      <div class="ps-arrow">›</div>
+    </div>
+    <div class="ps">
+      <div class="ps-n">STEP 05</div>
+      <span class="ps-icon">📊</span>
+      <div class="ps-title">Showcase</div>
+      <div class="ps-sub">Impact data, stories &amp; reports</div>
+    </div>
+  </div>
+</section>
+
+<!-- DUAL CTA -->
+<div class="cta-block" id="join">
+  <div class="cta-left rv">
+    <div>
+      <span class="cta-ey">For Youth in Tharaka Nithi</span>
+      <h3 class="cta-h">Join the community today.</h3>
+      <p class="cta-d">
+        Get weekly opportunities, skills resources, and connect with thousands of youth
+        across the county — directly on WhatsApp. Free. No application.
+      </p>
+    </div>
+    <div class="cta-bottom">
+      <a href="https://wa.me/254700000000?text=Hello%2C%20I%20want%20to%20join%20Impact360"
+         class="btn-white" target="_blank">🟢 Join on WhatsApp</a>
+      <span class="cta-meta">Open to all youth aged 16–35 across Tharaka Nithi County</span>
+    </div>
+  </div>
+  <div class="cta-right rv" id="partner">
+    <div>
+      <span class="cta-ey">For Institutions, NGOs &amp; Funders</span>
+      <h3 class="cta-h" style="color:var(--ink)">Partner with us.</h3>
+      <p class="cta-d">
+        We are open to program partnerships, co-implementation, and funding proposals
+        aligned to our three pillars. Let's build something that lasts.
+      </p>
+    </div>
+    <div class="cta-bottom">
+      <a href="mailto:info@impact360tnc.org" class="btn-dark">Send us a message →</a>
+      <span class="cta-meta" style="color:rgba(11,18,32,0.4)">📧 info@impact360tnc.org · Response within 48 hours</span>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="f-brand-name">IMPACT<span>360</span></div>
+      <span class="f-brand-tag">Empowering Tomorrow, Today.</span>
+      <div class="f-brand-loc">🗺 Tharaka Nithi County, Kenya</div>
+    </div>
+    <div class="fcol">
+      <h4>Organization</h4>
+      <a href="#about">About Us</a>
+      <a href="#pillars">Programs</a>
+      <a href="#impact">Impact</a>
+      <a href="#join">Contact</a>
+    </div>
+    <div class="fcol">
+      <h4>Programs</h4>
+      <a href="#pillars">Life360</a>
+      <a href="#pillars">Green360</a>
+      <a href="#pillars">Opportunity360</a>
+    </div>
+    <div class="fcol">
+      <h4>Connect</h4>
+      <a href="https://wa.me/254700000000" target="_blank">WhatsApp Community</a>
+      <a href="https://www.facebook.com/share/g/1BDZVf89aa/" target="_blank">Facebook Community</a>
+      <a href="mailto:info@impact360tnc.org">info@impact360tnc.org</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Impact360 Youth Organization · Tharaka Nithi County, Kenya</span>
+    <span>Empowering Tomorrow, Today.</span>
+  </div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
